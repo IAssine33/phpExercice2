@@ -41,13 +41,3 @@ class dbConnection {
 }
 
 
-// $dsn = 'mysql:host=localhost:3306;dbname=piscine_blog_php';
-// $username = 'root';
-// $password = 'root';
-
-// try {
-//     $pdo = new PDO($dsn, $username, $password);
-// 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-// } catch (PDOException $e) {
-//     echo "Erreur de connexion : " . $e->getMessage();
-// }

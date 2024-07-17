@@ -2,8 +2,7 @@
 <?php
 
 require_once('../config/config.php');
-require_once("../model/ArticleRepository.php");
-
+require_once("../model/articleRepository.php");
 
 
 
@@ -21,7 +20,11 @@ class addArticleController {
         // on lui donnant les valeurs pour le titre, le contenu et la date
         // que je veux insérer
         $articleRepository = new ArticleRepository();
-        $articleRepository->insert($title, $content, $date);
+        
+        $requestIsOk = $articleRepository->insert($title, $content, $date);
+
+        require_once('../template/page/addArticleView.php');
+
 
 
     }

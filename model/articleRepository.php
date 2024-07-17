@@ -42,12 +42,9 @@ class articleRepository{
         $stmt->bindParam(':date', $created_at);
 
         // Exécuter la requête, si tout vas bien..,sinon aficher l'erreur..
-
-        if ($stmt->execute()) {
-            echo "Nouveau produit ajouté avec succès";
-        } else {
-            echo "Erreur lors de l'ajout du produit";
-        }
+        $requestIsOk = $stmt->execute();
+        return $requestIsOk;
+        
     }
 }
 
