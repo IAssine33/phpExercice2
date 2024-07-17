@@ -1,8 +1,10 @@
 
 <?php 
 
-class articleRepository{
+require_once('../config/config.php');
 
+class articleRepository{
+    // methode de récupération des données
     public function findArticles(){
 
         // se connecter a la base se donner

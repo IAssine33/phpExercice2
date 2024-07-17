@@ -1,19 +1,18 @@
 <?php
 
+require_once('../model/articleRepository.php');
+
 class indexController{
 
 
     public function index(){
-        require_once('../config/config.php');
-
-        $dbConnexion = new dbConnection();
-        $pdo = $dbConnexion->connect();
-
-        $stmt = $pdo->query("SELECT * FROM article");
-        $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    require_once('../template/page/indexView.php');
+        $articleRepository = new ArticleRepository();
+        $articles = $articleRepository->findArticles();
+        
+        require_once('../template/page/indexView.php');
     }
 }
+
+//instance de la class
 $indexController = new IndexController();
 $indexController->index();
