@@ -21,6 +21,7 @@ class addArticleController {
         // que je veux insérer
         $articleRepository = new ArticleRepository();
         
+        // appeler la methode insert, recuperation de la valeur retourner par la methode executer
         $requestIsOk = $articleRepository->insert($title, $content, $date);
 
         require_once('../template/page/addArticleView.php');

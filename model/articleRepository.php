@@ -41,7 +41,7 @@ class articleRepository{
         $stmt->bindParam(':content', $content);
         $stmt->bindParam(':date', $created_at);
 
-        // Exécuter la requête, si tout vas bien..,sinon aficher l'erreur..
+        // recuperer la methode exécution la requête dans une variable et la retourner.
         $requestIsOk = $stmt->execute();
         return $requestIsOk;
         
