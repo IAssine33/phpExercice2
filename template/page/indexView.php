@@ -13,9 +13,12 @@ require_once('../template/partial/header.php');
         <?php foreach ($articles as $article) { ?>
 	<article>
 		<h1><?php echo $article['titre']; ?></h1>
-		<p><?php echo $article['content']; ?></p>
-        <h2><?php echo $article['created_at']; ?></h2>
-	</article>
+
+		 <!-- génère un lien pour accéder à la page qui affiche un article, en ajoutant l'id de l'article à la fin de l'url -->
+        <h2><a href="http://localhost/piscine_blog_php/public/show-article?id=<?php echo $article['id']; ?>">Afficher Titre</a></h2>
+        <h2><a href="http://localhost/piscine_blog_php/public/delete-article?id=<?php echo $article['id']; ?>">Supprimer l'article</a></h2>
+
+    </article>
 
 <?php } ?>
     </section>

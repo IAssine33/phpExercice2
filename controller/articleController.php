@@ -1,12 +1,12 @@
 
 <?php
 
-require_once('../config/config.php');
+require_once("../config/config.php");
 require_once("../model/articleRepository.php");
 
 
 
-class addArticleController {
+class articleController {
 
     public function addArticle(){
 
@@ -21,7 +21,7 @@ class addArticleController {
             $dateNow = new DateTime("NOW");
             $date = $dateNow->format('Y-m-d');
 
-                    // j'instancie l'ArticleRepository
+            // j'instancie l'ArticleRepository
             // et j'appelle la méthode insert
             // on lui donnant les valeurs pour le titre, le contenu et la date
             // que je veux insérer
@@ -38,11 +38,31 @@ class addArticleController {
 
 
         require_once('../template/page/addArticleView.php');
+        }
 
+
+        public function showArticle(){
+            $id = $_GET['id'];
+            $articleRepository = new articleRepository();
+            $article = $articleRepository->findOneById($id);
+
+
+            require_once('../template/page/showArticleView.php');
 
 
     }
+
+    public function deleteArticle(){
+        $id = $_GET['id'];
+        $articleRepository = new articleRepository();
+        $articleRepository->deleteById($id);
+
+        header('Location: http://localhost/piscine_blog_php/public/');
+
+    }
+
+
 }
 
-$addArticleController = new addArticleController();
-$addArticleController->addArticle();
+//$addArticleController = new articleController();
+//$addArticleController->showArticle();

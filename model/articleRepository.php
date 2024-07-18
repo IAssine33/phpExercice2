@@ -12,7 +12,7 @@ class articleRepository{
         $dbConnection = new dbConnection();
         $pdo = $dbConnection->connect();
 
-        // recuperation de données (artiles) de la base de donner
+        // recuperation de données (artile) de la base de donner
         $stmt = $pdo->query("SELECT * FROM article");
         $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
@@ -21,7 +21,7 @@ class articleRepository{
     }
         // la méthode insert permet de sauver des données dans la table article
         // elle insère le titre, le contenu et la date qu'on lui envoie en parametre
-        public function insert($title, $content, $date){
+    public function insert($title, $content, $date){
 
         // Se connecter a la base se donner
         $dbConnection = new dbConnection();
@@ -41,11 +41,44 @@ class articleRepository{
         $stmt->bindParam(':content', $content);
         $stmt->bindParam(':date', $created_at);
 
-        // recuperer la methode exécution la requête dans une variable et la retourner.
+        // recuperer la methode exécution de la requête dans une variable et la retourner.
         $requestIsOk = $stmt->execute();
         return $requestIsOk;
         
     }
-}
 
+    public function findOneById($id){
+
+        // se connecter a la base se donner
+        $dbConnection = new dbConnection();
+        $pdo = $dbConnection->connect();
+
+        // recuperation de données (artiles) de la base de donner.
+        $stmt = $pdo->prepare("SELECT * FROM article WHERE id = :id");
+
+        // Vérifictaion et nettoyage pour eviter les ecritures du langages SQL.
+        $stmt->bindParam(':id', $id);
+
+        // execution de la requéte
+        $stmt->execute();
+
+        $article = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $article;
+
+    }
+
+    public function deleteById($id){
+
+        $dbConnection = new dbConnection();
+        $pdo = $dbConnection->connect();
+
+        $stmt = $pdo->prepare("DELETE FROM article WHERE id = :id");
+        $stmt->bindParam(':id', $id);
+        $requestIsOk = $stmt->execute();
+        return $requestIsOk;
+
+    }
+
+}
 

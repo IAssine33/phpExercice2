@@ -13,6 +13,6 @@ class indexController{
     }
 }
 
-//instance de la class
-$indexController = new IndexController();
-$indexController->index();
+    //instance de la class
+//$indexController = new IndexController();
+//$indexController->index();
