@@ -35,17 +35,20 @@ main{
 .blocArticle{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 20px;
+    justify-content: space-evenly;
+    gap: 5px;
+
 }
 
 .blocArticle article{
     font-family: Damascus;
-    background-color: #506F90;
+    background-color: rgba(80, 111, 144, 3);
+    box-shadow: 10px 5px 5px cadetblue;
     border: solid black;
-    width: 300px;
+    width: 350px;
     padding: 5px;
     text-align: center;
+    height: 200px;
 }
 
 footer{
@@ -55,4 +58,5 @@ footer{
 
 .border_end{
     border-right: solid beige;
+
 }

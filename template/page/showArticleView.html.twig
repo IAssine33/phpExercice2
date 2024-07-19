@@ -1,7 +1,8 @@
 
 
-{% include("partial/header.html.twig") %}
+{% extends"./base.html.twig" %}
 
+{% block content %}
 <main>
 
     <h1>Le super blog de la piscine</h1>
@@ -12,5 +13,4 @@
 
 
 </main>
-
-{% include("partial/footer.html.twig") %}
+{% endblock %}

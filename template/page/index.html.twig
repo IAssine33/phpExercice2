@@ -1,5 +1,7 @@
 
-{% include('partial/header.html.twig') %}
+{% extends"./base.html.twig" %}
+
+{% block content %}
 <main>
         <article id="titre">
             <h1>UN GRAND TITRE</h1>
@@ -23,4 +25,4 @@
         {% endfor %}
     </section>
 </main>
-{% include('partial/footer.html.twig') %}
+{% endblock %}
