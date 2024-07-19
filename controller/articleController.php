@@ -35,9 +35,11 @@ class articleController {
         }
 
 
+        $loader = new \Twig\Loader\FilesystemLoader('../template');
+        $twig = new \Twig\Environment($loader);
 
-
-        require_once('../template/page/addArticleView.php');
+        echo $twig->render('page/addArticleView.html.twig', ['requestIsOk' => $requestIsOk]);
+        //require_once('../template/page/addArticleView.html.twig'); pour twig
         }
 
 
@@ -46,8 +48,11 @@ class articleController {
             $articleRepository = new articleRepository();
             $article = $articleRepository->findOneById($id);
 
+            $loader = new \Twig\Loader\FilesystemLoader('../template');
+            $twig = new \Twig\Environment($loader);
 
-            require_once('../template/page/showArticleView.php');
+            echo $twig->render('page/showArticleView.html.twig', ['article' => $article]);
+           // require_once('../template/page/showArticleView.html.twig');
 
 
     }
@@ -57,7 +62,11 @@ class articleController {
         $articleRepository = new articleRepository();
         $articleRepository->deleteById($id);
 
-        header('Location: http://localhost/piscine_blog_php/public/');
+
+            header('Location: http://localhost/piscine_blog_php/public/');
+
+
+
 
     }
 

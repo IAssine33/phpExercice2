@@ -1,7 +1,7 @@
 
-<?php 
-require_once('../template/partial/header.php');
-?>
+
+{% include('partial/header.html.twig')%}
+
     <main>
 
     <h1>Ajouter un article</h1>
@@ -22,15 +22,15 @@ require_once('../template/partial/header.php');
 
     
         
-        <?php if ($requestIsOk) { ?>
+        {%  if requestIsOk %}
             
             <p>L'article a bien été enregistré en BDD</p>
 
-    <?php }else{ ?>
+        {% else %}
 
         <p>Erreur, l'article n'a pas été entregistrer</p>
 
-    <?php } ?>
+        {% endif %}
 
     
 
@@ -39,12 +39,7 @@ require_once('../template/partial/header.php');
 
 
 
-
-
-
-
     </main>
 
-<?php
-require_once('../template/partial/footer.php');
-?>
+
+{% include ('partial/footer.html.twig') %}

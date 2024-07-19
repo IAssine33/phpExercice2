@@ -1,0 +1,26 @@
+
+{% include('partial/header.html.twig') %}
+<main>
+        <article id="titre">
+            <h1>UN GRAND TITRE</h1>
+            <p> LE PARAGRAPHE</p>
+        </article>
+        <article id="addArticle">
+            <h1>Ajouter un article</h1>
+            <a href="http://localhost/piscine_blog_php/public/add-article"><input type="submit" value="ICI"></a>
+        </article>
+    <section class="blocArticle">
+
+        {% for article in articles %}
+            <article>
+                <h1>{{ article.titre }}</h1>
+
+                <!-- génère un lien pour accéder à la page qui affiche un article, en ajoutant l'id de l'article à la fin de l'url -->
+                <h2><a href="http://localhost/piscine_blog_php/public/show-article?id={{ article.id }}">Afficher Titre</a></h2>
+                <h2><a href="http://localhost/piscine_blog_php/public/delete-article?id={{ article.id }}">Supprimer l'article</a></h2>
+
+            </article>
+        {% endfor %}
+    </section>
+</main>
+{% include('partial/footer.html.twig') %}

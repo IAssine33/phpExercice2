@@ -21,7 +21,7 @@ class articleRepository{
     }
         // la méthode insert permet de sauver des données dans la table article
         // elle insère le titre, le contenu et la date qu'on lui envoie en parametre
-    public function insert($title, $content, $date){
+    public function insert($titre, $content, $created_at){
 
         // Se connecter a la base se donner
         $dbConnection = new dbConnection();
@@ -32,9 +32,9 @@ class articleRepository{
         $stmt = $pdo->prepare($sql);
 
         // Définir les paramètres à remplacer avec leurs valeurs
-        $titre = "Exemple de titre";
-        $content = "Exemple de CONTENU";
-        $created_at = "24-04-17";
+        //$titre = "Exemple de titre";
+        //$content = "Exemple de CONTENU";
+        //$created_at = "24-04-17";
 
         //  le bindParam verifie si 
         $stmt->bindParam(':titre', $titre);
